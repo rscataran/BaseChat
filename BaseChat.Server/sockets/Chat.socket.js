@@ -5,7 +5,7 @@ module.exports = (server) => {
     io.on('connection', async (socket) => {
         console.log('a client connected');
         socket.join('lobby')
-        socket.broadcast.to('lobby').emit('message', {message:"a client connected to the lobby."})
+        socket.broadcast.to('lobby').emit('message', `a client connected to the lobby. ${socket.id}`)
         //Emit Listeners
         socket.on('disconnect', () => {
             console.log('client disconnected');
